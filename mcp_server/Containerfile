@@ -1,6 +1,6 @@
 FROM registry.access.redhat.com/ubi9/python-311:latest
 
-RUN pip install mcp["cli"]
+RUN pip install mcp["cli"] httpx
 
 WORKDIR /mcp_server
 
