@@ -14,10 +14,21 @@ spec:
     spec:
       containers:
       - name: ansible-mcp-server
-        image: quay.io/rcook/ansible-mcp:latest 
+        image: quay.io/rcook/ansible-mcp:amd
         ports:
           - containerPort: 8000
             protocol: TCP
           - containerPort: 8080
             protocol: TCP
+        env:
+          - name: AAP_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: aap
+                key: token
+          - name: AAP_URL
+            valueFrom:
+              secretKeyRef:
+                name: aap
+                key: url
         resources: {}
