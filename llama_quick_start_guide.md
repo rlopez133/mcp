@@ -62,6 +62,8 @@ llama stack build --template dev --image-type conda
 export ANTHROPIC_API_KEY=<your_key>
 ```
 
+NOTE: To get access to an Anthropic API Key visit https://console.anthropic.com
+
 10. Start your llama-stack environment
 
 ```bash
