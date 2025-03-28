@@ -215,5 +215,5 @@ streamlit run app.py
 
 Video of the Streamlit app:
 
-<a href="https://youtu.be/bwfjdeQHXHU"><img width="380" height="200" src="https://youtu.be/bwfjdeQHXHU" /></a>
+[![Watch the video](https://img.youtube.com/vi/bwfjdeQHXHU/maxresdefault.jpg)](https://youtu.be/bwfjdeQHXHU)
 
