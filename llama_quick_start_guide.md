@@ -120,7 +120,7 @@ server, which we expose using Supergateway.
 In a new terminal window, run the following command:
 
 ```bash
-npx -y supergateway --port <port> --stdio "AAP_TOKEN=<your_token> AAP_URL=https://<aap-url>/api/controller/v2 uv --directory /path/to/repo run ansible.py"
+npx -y supergateway --port <port> --stdio "AAP_TOKEN=<your_token> AAP_URL=https://<aap-url>/api/controller/v2 uv --directory /path/to/script run ansible.py"
 ```
 
 NOTE: Details to get your token are found in the README.md 
