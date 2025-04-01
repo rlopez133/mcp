@@ -219,3 +219,6 @@ Video of the Streamlit app:
 
 [![Watch the video](https://img.youtube.com/vi/bwfjdeQHXHU/maxresdefault.jpg)](https://youtu.be/bwfjdeQHXHU)
 
+# References
+
+- [Running llama-stack with MCP server](https://medium.com/@jameswnl/running-llama-stack-with-mcp-server-ad4cd38b2c62)
