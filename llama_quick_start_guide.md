@@ -222,3 +222,4 @@ Video of the Streamlit app:
 # References
 
 - [Running llama-stack with MCP server](https://medium.com/@jameswnl/running-llama-stack-with-mcp-server-ad4cd38b2c62)
+- [MCP on LLAMA-STACK](https://github.com/deewhyweb/mcp-on-llama-stack)
