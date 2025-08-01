@@ -23,7 +23,7 @@ Install `uv` and setup your Python project and environment.
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Install [jbang](https://www.jbang.dev/download/) which will be used when using the Kubernetes MCP Server.
+Install [jbang](https://www.jbang.dev/download/) which will be used when using the Kubernetes MCP Server. (jbang needs to be installed globally, recommend using the homebrew install pattern. If you install it locally (the curl pattern), Claude won't be able to access it).
 
 Restart your terminal to ensure that the `uv` and `jbang` command are now available.
 
