@@ -49,6 +49,8 @@ touch ansible.py
 
 This is the MCP Server I used to interact with my automation controller. Feel free to copy/paste this into your `ansible.py` file.
 
+Note: to connect to self-signed SSL, use edit the async client to be https.AsyncClient(verify=False)
+
 ```
 import os
 import httpx
