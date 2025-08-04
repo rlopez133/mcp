@@ -17,7 +17,7 @@
       "command": "jbang",
       "args": [
         "--quiet",
-        "https://github.com/quarkiverse/quarkus-mcp-servers/blob/main/kubernetes/src/main/java/io/quarkus/mcp/servers/kubernetes/MCPServerKubernetes.java"
+        "https://github.com/quarkiverse/quarkus-mcp-servers/blob/main/kubernetes/src/main/java/io/quarkiverse/mcp/servers/kubernetes/MCPServerKubernetes.java"
       ]
     }
   }

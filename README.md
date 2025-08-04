@@ -358,7 +358,7 @@ Open the `claude_desktop_config.json` , which on MacOS is located at
       "command": "jbang",
       "args": [
         "--quiet",
-        "https://github.com/quarkiverse/quarkus-mcp-servers/blob/main/kubernetes/src/main/java/io/quarkus/mcp/servers/kubernetes/MCPServerKubernetes.java"
+        "https://github.com/quarkiverse/quarkus-mcp-servers/blob/main/kubernetes/src/main/java/io/quarkiverse/mcp/servers/kubernetes/MCPServerKubernetes.java"
       ]
     }
   }
@@ -431,7 +431,7 @@ The two files are listed below for easy copy/paste.
       "command": "jbang",
       "args": [
         "--quiet",
-        "https://github.com/quarkiverse/quarkus-mcp-servers/blob/main/kubernetes/src/main/java/io/quarkus/mcp/servers/kubernetes/MCPServerKubernetes.java"
+        "https://github.com/quarkiverse/quarkus-mcp-servers/blob/main/kubernetes/src/main/java/io/quarkiverse/mcp/servers/kubernetes/MCPServerKubernetes.java"
       ]
     },
     "eda": {
