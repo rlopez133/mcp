@@ -23,7 +23,7 @@ Install `uv` and setup your Python project and environment.
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Install [jbang](https://www.jbang.dev/download/) which will be used when using the Kubernetes MCP Server.
+Install [jbang](https://www.jbang.dev/download/) which will be used when using the Kubernetes MCP Server. (jbang needs to be installed globally, recommend using the homebrew install pattern. If you install it locally (the curl pattern), Claude won't be able to access it).
 
 Restart your terminal to ensure that the `uv` and `jbang` command are now available.
 
@@ -48,6 +48,8 @@ touch ansible.py
 ## Step 3 Building your Ansible Automation Controller MCP Server
 
 This is the MCP Server I used to interact with my automation controller. Feel free to copy/paste this into your `ansible.py` file.
+
+Note: to connect to self-signed SSL, use edit the async client to be https.AsyncClient(verify=False)
 
 ```
 import os
@@ -358,7 +360,7 @@ Open the `claude_desktop_config.json` , which on MacOS is located at
       "command": "jbang",
       "args": [
         "--quiet",
-        "https://github.com/quarkiverse/quarkus-mcp-servers/blob/main/kubernetes/src/main/java/io/quarkus/mcp/servers/kubernetes/MCPServerKubernetes.java"
+        "https://github.com/quarkiverse/quarkus-mcp-servers/blob/main/kubernetes/src/main/java/io/quarkiverse/mcp/servers/kubernetes/MCPServerKubernetes.java"
       ]
     }
   }
@@ -431,7 +433,7 @@ The two files are listed below for easy copy/paste.
       "command": "jbang",
       "args": [
         "--quiet",
-        "https://github.com/quarkiverse/quarkus-mcp-servers/blob/main/kubernetes/src/main/java/io/quarkus/mcp/servers/kubernetes/MCPServerKubernetes.java"
+        "https://github.com/quarkiverse/quarkus-mcp-servers/blob/main/kubernetes/src/main/java/io/quarkiverse/mcp/servers/kubernetes/MCPServerKubernetes.java"
       ]
     },
     "eda": {
