@@ -1,8 +1,7 @@
 import os
 import httpx
 from mcp.server.fastmcp import FastMCP
-from typing import Any, Dict
-import logging
+from typing import Optional, Any, Dict
 
 # Environment variables for authentication
 EDA_URL = os.getenv("EDA_URL")
@@ -22,11 +21,11 @@ mcp = FastMCP("eda")
 
 async def make_request(url: str, *, method: str = "GET", params: Optional[Dict] = None, json: Optional[Dict] = None) -> Any:
     """Helper function to make authenticated API requests to EDA."""
-    async with httpx.AsyncClient(verify=False) as client:
-        logging.info(f"make_request.url = {url}")
-        logging.info(f"make_request.method = {method}")
-        logging.info(f"make_request.params = {params}")
-        logging.info(f"make_request.json = {json}")
+    async with httpx.AsyncClient() as client:
+        #logging.info(f"make_request.url = {url}")
+        #logging.info(f"make_request.method = {method}")
+        #logging.info(f"make_request.params = {params}")
+        #logging.info(f"make_request.json = {json}")
         response = await client.request(method, url, headers=HEADERS, params=params, json=json)
     if response.status_code not in [200, 201, 204]:
         return f"Error {response.status_code}: {response.text}"
