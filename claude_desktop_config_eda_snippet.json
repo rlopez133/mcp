@@ -1,0 +1,13 @@
+		"eda": {
+			"command": "/absolute/path/to/uv",
+			"args": [
+				"--directory",
+				"/absolute/path/to/ansible_mcp",
+				"run",
+				"eda.py"
+			],
+			"env": {
+				"EDA_TOKEN": "<eda-token-same-as-aap-token>",
+				"EDA_URL": "https://<my-automation-controller>/api/eda/v1"
+			}
+		},
