@@ -372,8 +372,6 @@ WARNING: Absolute path to your `uv` binary is required. Do a `which uv` on your 
 
 NOTE: If you need to create the AAP_TOKEN, go to the AAP Dashboard, select Access Management -> Users -> <your_user> -> Tokens -> Create token -> Select the Scope dropdown and select 'Write' and click Create token.
 
-
-
 ## Step 5: Re-Launch Claude Desktop 
 
 If you already had Claude Desktop open, relaunch it, otherwise make sure Claude Desktop is picking up the MCP servers. You can verify this by ensuring the hammer icon is launched.
@@ -445,7 +443,7 @@ The two files are listed below for easy copy/paste.
             "eda.py"
         ],
         "env": {
-            "EDA_TOKEN": "<EDA_TOKEN>",
+            "EDA_TOKEN": "<eda-token-can-be-same-as-aap-token>",
             "EDA_URL": "https://<aap-url>/api/eda/v1"
         }
     }
@@ -463,7 +461,7 @@ NOTE: An EDA Token can be generated from the AAP Dashboard.
 import os
 import httpx
 from mcp.server.fastmcp import FastMCP
-from typing import Any, Dict
+from typing import Optional, Any, Dict
 
 # Environment variables for authentication
 EDA_URL = os.getenv("EDA_URL")
@@ -481,10 +479,14 @@ HEADERS = {
 # Initialize FastMCP
 mcp = FastMCP("eda")
 
-async def make_request(url: str, method: str = "GET", json: Dict = None) -> Any:
+async def make_request(url: str, *, method: str = "GET", params: Optional[Dict] = None, json: Optional[Dict] = None) -> Any:
     """Helper function to make authenticated API requests to EDA."""
     async with httpx.AsyncClient() as client:
-        response = await client.request(method, url, headers=HEADERS, json=json)
+        #logging.info(f"make_request.url = {url}")
+        #logging.info(f"make_request.method = {method}")
+        #logging.info(f"make_request.params = {params}")
+        #logging.info(f"make_request.json = {json}")
+        response = await client.request(method, url, headers=HEADERS, params=params, json=json)
     if response.status_code not in [200, 201, 204]:
         return f"Error {response.status_code}: {response.text}"
     return response.json() if "application/json" in response.headers.get("Content-Type", "") else response.text
@@ -548,6 +550,22 @@ async def get_rulebook(rulebook_id: int) -> Any:
 async def list_event_streams() -> Any:
     """List all event streams."""
     return await make_request(f"{EDA_URL}/event-streams/")
+
+@mcp.tool()
+async def list_rule_audits() -> Any:
+    """List all rule audits"""
+    return await make_request(f"{EDA_URL}/audit-rules/")
+
+@mcp.tool()
+async def get_rule_audit(rulebook_id: int) -> Any:
+    """Get the audit of a specific rule"""
+    return await make_request(f"{EDA_URL}/audit-rules/{rulebook_id}")
+
+@mcp.tool()
+async def get_rule_activation_audit(activation_id: int) -> Any:
+    """Get the audit of a specific rule activation"""
+    params = {"activation_instance_id": str(activation_id)}
+    return await make_request(f"{EDA_URL}/audit-rules/", params=params)
 
 if __name__ == "__main__":
     mcp.run(transport="stdio")
